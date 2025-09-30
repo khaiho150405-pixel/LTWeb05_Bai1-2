@@ -1,0 +1,30 @@
+﻿@model LTWeb05_Bai01.Models.DepartmentViewModel
+@{
+    ViewBag.Title = "Detail_PhongBan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>@Html.ActionLink("Quay lại", "HienThiPhongBan")</p>
+<h2>Chi Tiết Phòng Ban</h2>
+<p><b>Mã Phòng Ban:</b>@Model.Department.MaPhong</p>
+<p><b>Tên Phòng Ban:</b>@Model.Department.TenPhong</p>
+
+<table class="table table-striped border">
+    <thead class="thead-dark">
+        <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Giới tính</th>
+            <th>Tỉnh/Thành phố</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Employees)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+            <td>@Html.DisplayFor(modelItem => item.Ten)</td>
+            <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tinh)</td>
+        </tr>
+    }
+</table>
+
